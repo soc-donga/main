@@ -1,11 +1,41 @@
+/* * SoC Design Lab - Menu Script
+ * 모든 페이지의 상단 메뉴를 생성하고, 스크롤 동작을 제어합니다.
+ */
+
+document.write(`
 <div class="menu" id="navbar">
-  <div class="menu-table flex-row-space-between">
+  <div class="menu-table flex-row-space-between" style="max-width: 100%; padding: 0 20px;">
     
     <div class="logo flex-row-center">
-      <a href="index.html" style="color: #ffffff; font-size: 24px; font-weight: bold; text-decoration: none; white-space: nowrap;">
-        SoC 설계 연구실
+      <a href="index.html" style="
+          font-family: 'Open Sans Condensed', Helvetica, Arial, sans-serif; 
+          font-size: 30px; 
+          font-weight: 700; 
+          color: #ffffff; 
+          text-decoration: none; 
+          white-space: nowrap;">
+        SoC Design Lab.
       </a>
     </div>
 
     </div>
 </div>
+
+var prevScrollpos = window.pageYOffset;
+
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  var navbar = document.getElementById("navbar");
+
+  if (navbar) {
+    // 1. 스크롤 올릴 때: 메뉴 등장 (top: 0)
+    if (prevScrollpos > currentScrollPos) {
+      navbar.style.top = "0";
+    } 
+    // 2. 스크롤 내릴 때: 메뉴 숨김 (top: -80px)
+    else {
+      navbar.style.top = "-80px"; 
+    }
+  }
+  prevScrollpos = currentScrollPos;
+}
