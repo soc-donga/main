@@ -61,3 +61,13 @@
     max-width: 100%;
   }
 }
+
+/* [스마트 메뉴 스타일] - custom.css에 추가 */
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: top 0.3s;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.2); /* 배경을 투명하게 하거나 색상 변경 가능 */
+}
